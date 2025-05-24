@@ -13,7 +13,7 @@ pipeline{
             }
             post{
                 success{
-                    compressLog: true,
+                    attachLog: true,
                     mail to: "kaveeshaakalanka835@gmail.com",
                     subject: "Unit test email",
                     body: "Test was successful!"
