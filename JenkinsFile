@@ -13,8 +13,8 @@ pipeline{
             }
             post{
                 success{
-                    mail to: "kaveeshaakalanka835@gmail.com"
-                    subject: "Unit test email"
+                    mail to: "kaveeshaakalanka835@gmail.com",
+                    subject: "Unit test email",
                     body: "Test was successful!"
                 }
             }
