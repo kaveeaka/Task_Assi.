@@ -13,10 +13,25 @@ pipeline{
             }
             post{
                 success{
+                    script{
+                        mail(
+                            subject: "Unit test email",
+                            body: "Test was successful!",
+                            to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
+                            from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
+                            attachLog: true // This will attach the build log
+                        )
+                    }
+                    //mail to: "kaveeshaakalanka835@gmail.com",
+                    //subject: "Unit test email",
+                    //body: "Test was successful!",
+                    //compressLog: true
+                }
+
+                failure{
                     mail to: "kaveeshaakalanka835@gmail.com",
                     subject: "Unit test email",
-                    emailext attachLog: true,
-                    body: "Test was successful!"
+                    body: "Test Failed!"
                 }
             }
         }
@@ -28,6 +43,20 @@ pipeline{
         stage('Security Scan'){
             steps{
                 echo "Perform a security scan on the code using a tool to identify any vulnerabilites. Tool: Tenable"
+            }
+            post{
+                success{
+                    mail to: "kaveeshaakalanka835@gmail.com",
+                    subject: "Security Scan Update",
+                    body: "Security Scan was successful!",
+                    compressLog: true
+                }
+
+                failure{
+                    mail to: "kaveeshaakalanka835@gmail.com",
+                    subject: "Unit test email",
+                    body: "Security Scan Failed!"
+                }
             }
         }
         stage('Deploy to Staging'){
