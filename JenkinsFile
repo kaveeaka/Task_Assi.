@@ -15,7 +15,8 @@ pipeline{
                 success{
                     mail to: "kaveeshaakalanka835@gmail.com",
                     subject: "Unit test email",
-                    body: "Test was successful!"
+                    body: "Test was successful!",
+                    compressLog: true
                 }
             }
         }
