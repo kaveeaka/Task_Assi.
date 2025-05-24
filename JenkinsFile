@@ -48,8 +48,7 @@ pipeline{
                 success{
                     mail to: "kaveeshaakalanka835@gmail.com",
                     subject: "Security Scan Update",
-                    body: "Security Scan was successful!",
-                    compressLog: true
+                    body: "Security Scan was successful!"
                 }
 
                 failure{
