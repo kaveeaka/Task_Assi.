@@ -11,6 +11,13 @@ pipeline{
             steps{
                 echo "Run unit tests to ensure the code funtions as expected and run integration tests to ensure the different components of the application work together as expected. Tool: Mocha"
             }
+            post{
+                success{
+                    mail to:"kaveeshaakalanka835@gmail.com"
+                    subject: "Unit test email"
+                    body: "Test was successful!"
+                }
+            }
         }
         stage('Code Analysis'){
             steps{
@@ -37,12 +44,6 @@ pipeline{
             steps{
 
                     echo "Depoly the application to a production server."
-            }
-        }
-        stage('Complete'){
-            steps{
-
-                    echo "Completed."
             }
         }
     }
