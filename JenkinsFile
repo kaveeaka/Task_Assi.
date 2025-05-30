@@ -17,25 +17,27 @@ pipeline{
                         body: '''<html>
                                     <body>
                                         <p>Unit Test Successful!</p>
-                                        <p>Click here to view<a href="${BUILD_URL}/consoleText">log</a></p>
+                                        <p>Click here to view <a href="${BUILD_URL}/consoleText">log</a></p>
                                     </body>
                                 </html>''',
                         subject: "Unit test email",
                         to: "kaveeshaakalanka835@gmail.com",
+                        from: "hbkakalanka256.work@gmail.com",
                         mimeType: "text/html"
                     ) 
                 }
-
+            
                 failure{
                     emailext(
                         body: '''<html>
                                     <body>
                                         <p>Unit Test Failed!</p>
-                                        <p>Click here to view<a href="${BUILD_URL}/consoleText">log</a></p>
+                                        <p>Click here to view <a href="${BUILD_URL}/consoleText">log</a></p>
                                     </body>
                                 </html>''',
                         subject: "Unit test email",
                         to: "kaveeshaakalanka835@gmail.com",
+                        from: "hbkakalanka256.work@gmail.com",
                         mimeType: "text/html"
                     )
                 }
@@ -52,27 +54,33 @@ pipeline{
             }
             post{
                 success{
-                    script{
-                        mail(
-                            subject: "Security Scan Update",
-                            body: "Security Scan was successful!",
-                            to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
-                            from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
-                            attachLog: true // This will attach the build log
-                        )
-                    }
+                    emailext(
+                        body: '''<html>
+                                    <body>
+                                        <p>Security Scan Successful!</p>
+                                        <p>Click here to view <a href="${BUILD_URL}/consoleText">log</a></p>
+                                    </body>
+                                </html>''',
+                        subject: "Security Scan Update",
+                        to: "kaveeshaakalanka835@gmail.com",
+                        from: "hbkakalanka256.work@gmail.com",
+                        mimeType: "text/html"
+                    )
                 }
-
+            
                 failure{
-                    script{
-                        mail(
-                            subject: "Security Scan Update",
-                            body: "Security Scan Failed!",
-                            to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
-                            from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
-                            attachLog: true // This will attach the build log
-                        )
-                    }
+                    emailext(
+                        body: '''<html>
+                                    <body>
+                                        <p>Security Scan Failed!</p>
+                                        <p>Click here to view <a href="${BUILD_URL}/consoleText">log</a></p>
+                                    </body>
+                                </html>''',
+                        subject: "Security Scan Update",
+                        to: "kaveeshaakalanka835@gmail.com",
+                        from: "hbkakalanka256.work@gmail.com",
+                        mimeType: "text/html"
+                    )
                 }
             }
         }
