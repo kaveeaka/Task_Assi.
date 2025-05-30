@@ -14,17 +14,29 @@ pipeline{
             post{
                 success{
                     emailext(
-                        body: "Unit test successful!" "${env.Build_URL}",
+                        body: '''<html>
+                                    <body>
+                                        <p>Unit Test Successful!</p>
+                                        <p>Check the <a href="${env.Build_URL}">log here</a>
+                                    </body>
+                                </html>''',
                         subject: "Unit test email",
                         to: "kaveeshaakalanka835@gmail.com"
+                        mimeType: "text/html"
                     ) 
                 }
 
                 failure{
                     emailext(
-                        body: "Unit test failed!" ${env.Build_URL},
+                        body: '''<html>
+                                    <body>
+                                        <p>Unit Test Failed!</p>
+                                        <p>Check the <a href="${env.Build_URL}">log here</a>
+                                    </body>
+                                </html>''',
                         subject: "Unit test email",
                         to: "kaveeshaakalanka835@gmail.com"
+                        mimeType: "text/html"
                     )
                 }
             }
