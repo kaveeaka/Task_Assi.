@@ -21,7 +21,7 @@ pipeline{
                                     </body>
                                 </html>''',
                         subject: "Unit test email",
-                        to: "kaveeshaakalanka835@gmail.com"
+                        to: "kaveeshaakalanka835@gmail.com",
                         mimeType: "text/html"
                     ) 
                 }
@@ -35,7 +35,7 @@ pipeline{
                                     </body>
                                 </html>''',
                         subject: "Unit test email",
-                        to: "kaveeshaakalanka835@gmail.com"
+                        to: "kaveeshaakalanka835@gmail.com",
                         mimeType: "text/html"
                     )
                 }
