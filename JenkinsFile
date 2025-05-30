@@ -16,10 +16,9 @@ pipeline{
                     script{
                         mail(
                             subject: "Unit test email",
-                            body: "Test Success!",
+                            body: "Test Success! logger (java.io.PrintStream)",
                             to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
                             from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
-                            logger (java.io.PrintStream)
                         )
                     }
                 }
