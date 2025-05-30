@@ -18,8 +18,8 @@ pipeline{
                             subject: "Unit test email",
                             body: "Test Success!",
                             to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
+                            attachmentsPattern: 'build_log.txt',
                             from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
-                            attachLog: true // This will attach the build log
                         )
                     }
                 }
@@ -30,8 +30,8 @@ pipeline{
                             subject: "Unit test email",
                             body: "Test failed!",
                             to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
+                            attachmentsPattern: 'build_log.txt',
                             from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
-                            attachLog: true // This will attach the build log
                         )
                     }
                 }
