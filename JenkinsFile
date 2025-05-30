@@ -20,6 +20,7 @@ pipeline{
                             to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
                             attachmentsPattern: 'build_log.txt',
                             from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
+                            logger ( java.io.PrintStream)
                         )
                     }
                 }
