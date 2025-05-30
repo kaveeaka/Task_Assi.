@@ -14,7 +14,7 @@ pipeline{
             post{
                 success{
                     emailext(
-                        body: "Unit test successful!" ${env.Build_URL},
+                        body: "Unit test successful!" "${env.Build_URL}",
                         subject: "Unit test email",
                         to: "kaveeshaakalanka835@gmail.com"
                     ) 
