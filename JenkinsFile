@@ -19,8 +19,8 @@ pipeline{
                             body: "Test Success!",
                             to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
                             from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
+                            logger (java.io.PrintStream)
                         )
-                        logger (java.io.PrintStream)
                     }
                 }
 
