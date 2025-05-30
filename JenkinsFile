@@ -17,8 +17,7 @@ pipeline{
                         body: '''<html>
                                     <body>
                                         <p>Unit Test Successful!</p>
-                                        <iframe src="${BUILD_URL}/consoleText" title="description"></iframe>
-                                        <p>${BUILD_URL}/consoleText</p>
+                                        <p>Click here to view<a href="${BUILD_URL}/consoleText">log</a></p>
                                     </body>
                                 </html>''',
                         subject: "Unit test email",
@@ -32,7 +31,7 @@ pipeline{
                         body: '''<html>
                                     <body>
                                         <p>Unit Test Failed!</p>
-                                        <p>${BUILD_URL}/consoleText</p>
+                                        <p>Click here to view<a href="${BUILD_URL}/consoleText">log</a></p>
                                     </body>
                                 </html>''',
                         subject: "Unit test email",
