@@ -17,7 +17,7 @@ pipeline{
                         body: '''<html>
                                     <body>
                                         <p>Unit Test Successful!</p>
-                                        <pre>${BUILD_LOG_EXCERPT, start="Regex-for-start", end="Regex-for-end"}</pre>
+                                        <p><pre>${BUILD_LOG_EXCERPT, start="Regex-for-start", end="Regex-for-end"}</pre></p>
                                     </body>
                                 </html>''',
                         subject: "Unit test email",
@@ -31,7 +31,7 @@ pipeline{
                         body: '''<html>
                                     <body>
                                         <p>Unit Test Failed!</p>
-                                        <pre>${BUILD_LOG_EXCERPT, start="Regex-for-start", end="Regex-for-end"}</pre>
+                                        <p><pre>${BUILD_LOG_EXCERPT, start="Regex-for-start", end="Regex-for-end"}</pre></p>
                                     </body>
                                 </html>''',
                         subject: "Unit test email",
