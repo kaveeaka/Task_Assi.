@@ -16,7 +16,7 @@ pipeline{
                     script{
                         mail(
                             subject: "Unit test email",
-                            body: ${BUILD_LOG, maxLines, escapeHtml},
+                            body: "Test Success!"
                             to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
                             from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
                             attachLog: true // This will attach the build log
