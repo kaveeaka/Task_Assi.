@@ -13,25 +13,15 @@ pipeline{
             }
             post{
                 success{
-                    script{
-                        mail(
-                            subject: "Unit test email",
-                            body: "Test Success!",
-                            to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
-                            from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
-                        )
-                    }
+                    emailext body: "Unit test successful!",
+                    subject: "Unit test email",
+                    to: "kaveeshaakalanka835@gmail.com"
                 }
 
                 failure{
-                    script{
-                        mail(
-                            subject: "Unit test email",
-                            body: "Test failed!",
-                            to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
-                            from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
-                        )
-                    }
+                    emailext body: "Unit test failed!",
+                    subject: "Unit test email",
+                    to: "kaveeshaakalanka835@gmail.com"
                 }
             }
         }
@@ -52,6 +42,7 @@ pipeline{
                             body: "Security Scan was successful!",
                             to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
                             from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
+                            attachLog: true // This will attach the build log
                         )
                     }
                 }
@@ -63,6 +54,7 @@ pipeline{
                             body: "Security Scan Failed!",
                             to: 'kaveeshaakalanka835@gmail.com', // Replace with your recipient
                             from: 'hbkakalanka256.work@gmail.com', // Replace with your sender
+                            attachLog: true // This will attach the build log
                         )
                     }
                 }
