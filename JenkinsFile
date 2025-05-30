@@ -13,15 +13,19 @@ pipeline{
             }
             post{
                 success{
-                    emailext body: "Unit test successful!",
-                    subject: "Unit test email",
-                    to: "kaveeshaakalanka835@gmail.com"
+                    emailext(
+                        body: "Unit test successful!" ${env.Build_URL},
+                        subject: "Unit test email",
+                        to: "kaveeshaakalanka835@gmail.com"
+                    ) 
                 }
 
                 failure{
-                    emailext body: "Unit test failed!",
-                    subject: "Unit test email",
-                    to: "kaveeshaakalanka835@gmail.com"
+                    emailext(
+                        body: "Unit test failed!" ${env.Build_URL},
+                        subject: "Unit test email",
+                        to: "kaveeshaakalanka835@gmail.com"
+                    )
                 }
             }
         }
